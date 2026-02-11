@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Embedding Model Benchmark Explorer</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --bg3: #21262d;
+  --border: #30363d;
+  --text: #e6edf3;
+  --text2: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #3fb950;
+  --warn: #d29922;
+  --red: #f85149;
+  --cell-pad: 8px 10px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* Layout */
+.app { display: flex; flex-direction: column; height: 100vh; }
+.controls { padding: 12px 16px; background: var(--bg2); border-bottom: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.controls label { color: var(--text2); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+.controls input, .controls select { background: var(--bg3); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 4px 8px; font-size: 13px; font-family: inherit; }
+.controls input:focus, .controls select:focus { outline: none; border-color: var(--accent); }
+.controls input[type="text"] { width: 200px; }
+.controls input[type="number"] { width: 80px; }
+.control-group { display: flex; align-items: center; gap: 4px; }
+.control-group.stacked { flex-direction: column; align-items: flex-start; }
+
+.table-wrap { flex: 1; overflow: auto; }
+.info-bar { padding: 6px 16px; background: var(--bg2); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; color: var(--text2); font-size: 12px; }
+
+/* Table */
+table { border-collapse: collapse; width: max-content; min-width: 100%; }
+thead { position: sticky; top: 0; z-index: 10; }
+th {
+  background: var(--bg3);
+  padding: var(--cell-pad);
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  border-bottom: 2px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  position: relative;
+}
+th:hover { background: #282e36; }
+th .sort-arrow { margin-left: 4px; color: var(--text2); font-size: 10px; }
+th .sort-arrow.active { color: var(--accent); }
+
+td {
+  padding: var(--cell-pad);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+tr:hover td { background: rgba(88, 166, 255, 0.04); }
+tr.highlighted td { background: rgba(88, 166, 255, 0.08); }
+
+.model-name { font-weight: 500; max-width: 280px; overflow: hidden; text-overflow: ellipsis; }
+.model-name .full-name { color: var(--text2); font-size: 11px; font-weight: 400; }
+
+/* Score cells */
+.score-cell { text-align: right; font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace; font-size: 12px; }
+.score-cell .avg { font-weight: 600; }
+.score-cell .coverage { color: var(--text2); font-size: 10px; margin-left: 2px; }
+.score-cell.sparse .avg { opacity: 0.5; }
+.score-cell.no-data { color: var(--bg3); }
+
+/* Heat coloring */
+.heat-0 { color: var(--text2); }
+.heat-1 { color: #d29922; }
+.heat-2 { color: #e09b30; }
+.heat-3 { color: #d4a740; }
+.heat-4 { color: #a8c050; }
+.heat-5 { color: #3fb950; }
+
+.params-cell { text-align: right; }
+.ctx-cell { text-align: right; }
+
+/* Detail panel */
+.detail-panel {
+  position: fixed; right: 0; top: 0; bottom: 0; width: 400px;
+  background: var(--bg2); border-left: 1px solid var(--border);
+  z-index: 20; overflow-y: auto; padding: 16px;
+  transform: translateX(100%); transition: transform 0.15s ease;
+}
+.detail-panel.open { transform: translateX(0); }
+.detail-panel h3 { margin-bottom: 12px; font-size: 16px; }
+.detail-panel .close-btn {
+  position: absolute; top: 12px; right: 12px;
+  background: none; border: none; color: var(--text2); cursor: pointer; font-size: 18px;
+}
+.detail-panel .close-btn:hover { color: var(--text); }
+.detail-table { width: 100%; margin-bottom: 16px; }
+.detail-table th { background: transparent; font-size: 11px; text-transform: uppercase; color: var(--text2); text-align: left; padding: 4px 8px; border-bottom: 1px solid var(--border); cursor: default; }
+.detail-table td { padding: 3px 8px; font-family: monospace; font-size: 12px; }
+.detail-table td:last-child { text-align: right; }
+.detail-section { margin-bottom: 16px; }
+.detail-section h4 { font-size: 12px; color: var(--text2); text-transform: uppercase; margin-bottom: 6px; }
+
+/* Checkbox filters */
+.bench-toggles { display: flex; gap: 8px; flex-wrap: wrap; }
+.bench-toggle { display: flex; align-items: center; gap: 3px; }
+.bench-toggle input[type="checkbox"] { accent-color: var(--accent); }
+.bench-toggle label { font-size: 12px; color: var(--text); cursor: pointer; text-transform: none; letter-spacing: 0; }
+
+/* Presets */
+.presets { display: flex; gap: 4px; }
+.presets button {
+  background: var(--bg3); color: var(--text2); border: 1px solid var(--border);
+  border-radius: 4px; padding: 3px 8px; font-size: 11px; cursor: pointer;
+  font-family: inherit;
+}
+.presets button:hover { color: var(--text); border-color: var(--accent); }
+.presets button.active { color: var(--accent); border-color: var(--accent); }
+
+.min-coverage { display: flex; align-items: center; gap: 4px; }
+.min-coverage input[type="range"] { width: 80px; accent-color: var(--accent); }
+.min-coverage span { font-size: 12px; min-width: 24px; color: var(--text); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .controls { padding: 8px; gap: 6px; }
+  .detail-panel { width: 100%; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="controls">
+    <div class="control-group">
+      <label>Search</label>
+      <input type="text" id="search" placeholder="Model name...">
+    </div>
+    <div class="control-group">
+      <label>Params</label>
+      <input type="number" id="min-params" placeholder="Min (M)" step="1">
+      <span style="color:var(--text2)">-</span>
+      <input type="number" id="max-params" placeholder="Max (M)" step="1">
+    </div>
+    <div class="control-group">
+      <label>Min ctx</label>
+      <input type="number" id="min-ctx" placeholder="e.g. 8192" step="1">
+    </div>
+    <div class="control-group">
+      <label>Sort</label>
+      <select id="sort-col">
+        <option value="name">Name</option>
+        <option value="params">Params</option>
+        <option value="max_tokens">Context</option>
+        <option value="Prose">Prose</option>
+        <option value="RTEB_Code" selected>RTEB Code</option>
+        <option value="CoIR">CoIR</option>
+        <option value="Instruct">Instruct</option>
+        <option value="LongCtx">LongCtx</option>
+        <option value="Reason">Reason</option>
+      </select>
+      <select id="sort-dir">
+        <option value="desc">Desc</option>
+        <option value="asc">Asc</option>
+      </select>
+    </div>
+    <div class="control-group min-coverage">
+      <label>Min tasks</label>
+      <input type="range" id="min-coverage-range" min="0" max="100" value="0">
+      <span id="min-coverage-val">0%</span>
+    </div>
+    <div class="control-group">
+      <label>Benchmarks</label>
+      <div class="bench-toggles" id="bench-toggles"></div>
+    </div>
+    <div class="control-group">
+      <label>Presets</label>
+      <div class="presets" id="presets"></div>
+    </div>
+  </div>
+  <div class="info-bar">
+    <span id="count-info">Loading...</span>
+    <span id="data-info"></span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead id="thead"></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="detail-panel" id="detail-panel">
+  <button class="close-btn" id="close-detail">&times;</button>
+  <div id="detail-content"></div>
+</div>
+
+<script src="models.js"></script>
+<script>
+const BENCH_NAMES = ["Prose", "RTEB_Code", "CoIR", "Instruct", "LongCtx", "Reason"];
+const BENCH_LABELS = { Prose: "Prose", RTEB_Code: "RTEB Code", CoIR: "CoIR", Instruct: "Instruct", LongCtx: "LongCtx", Reason: "Reason" };
+const BENCH_TOTALS = { Prose: 10, RTEB_Code: 7, CoIR: 9, Instruct: 3, LongCtx: 7, Reason: 7 };
+
+const PRESETS = [
+  { name: "All", search: "", minParams: "", maxParams: "", minCtx: "", sort: "RTEB_Code", dir: "desc", benches: BENCH_NAMES.slice(), coverage: 0 },
+  { name: "Code+Prose", search: "", minParams: "", maxParams: "", minCtx: "", sort: "RTEB_Code", dir: "desc", benches: ["Prose", "RTEB_Code", "CoIR"], coverage: 50 },
+  { name: "Tiny (<100M)", search: "", minParams: "", maxParams: "100", minCtx: "", sort: "Prose", dir: "desc", benches: BENCH_NAMES.slice(), coverage: 0 },
+  { name: "Long ctx", search: "", minParams: "", maxParams: "", minCtx: "8192", sort: "LongCtx", dir: "desc", benches: ["Prose", "RTEB_Code", "LongCtx"], coverage: 0 },
+  { name: "Candidates", search: "granite|qwen3|embeddinggemma|gte-multilingual|arctic-embed|octen|modernbert|bge-m3$|nomic-embed-text-v1.5$", minParams: "", maxParams: "", minCtx: "", sort: "RTEB_Code", dir: "desc", benches: BENCH_NAMES.slice(), coverage: 0 },
+];
+
+let DATA = [];
+let visibleBenches = BENCH_NAMES.slice();
+let sortCol = "RTEB_Code";
+let sortDir = "desc";
+
+// State
+const state = {
+  search: "",
+  minParams: null,
+  maxParams: null,
+  minCtx: null,
+  sortCol: "RTEB_Code",
+  sortDir: "desc",
+  minCoverage: 0,
+};
+
+function formatParams(p) {
+  if (p >= 1e9) return (p / 1e9).toFixed(1) + "B";
+  if (p >= 1e6) return Math.round(p / 1e6) + "M";
+  if (p >= 1e3) return Math.round(p / 1e3) + "K";
+  return String(p);
+}
+
+function formatCtx(t) {
+  if (t == null) return "?";
+  if (t >= 1e6) return Math.round(t / 1e3) + "K";
+  if (t >= 10000) return Math.round(t / 1e3) + "K";
+  return String(Math.round(t));
+}
+
+function heatClass(val, bench) {
+  if (val == null) return "no-data";
+  // Different scales per bench type
+  if (bench === "Instruct") {
+    // These are near 0 or negative for everyone
+    if (val < 0) return "heat-0";
+    if (val < 3) return "heat-1";
+    if (val < 5) return "heat-3";
+    return "heat-5";
+  }
+  if (val < 10) return "heat-0";
+  if (val < 30) return "heat-1";
+  if (val < 45) return "heat-2";
+  if (val < 55) return "heat-3";
+  if (val < 65) return "heat-4";
+  return "heat-5";
+}
+
+function getAvg(model, bench) {
+  const b = model.benchmarks[bench];
+  return b ? b.avg : null;
+}
+
+function getCoverage(model, bench) {
+  const b = model.benchmarks[bench];
+  if (!b) return 0;
+  return b.n / b.total;
+}
+
+function coverageFraction(model, bench) {
+  const b = model.benchmarks[bench];
+  if (!b) return "";
+  return `${b.n}/${b.total}`;
+}
+
+function sortValue(model) {
+  const col = state.sortCol;
+  if (col === "name") return model.name.toLowerCase();
+  if (col === "params") return model.params;
+  if (col === "max_tokens") return model.max_tokens || 0;
+  const avg = getAvg(model, col);
+  return avg != null ? avg : -999;
+}
+
+function matchesFilters(model) {
+  // Search
+  if (state.search) {
+    try {
+      const re = new RegExp(state.search, "i");
+      if (!re.test(model.name) && !re.test(model.full_name)) return false;
+    } catch {
+      if (!model.name.toLowerCase().includes(state.search.toLowerCase())) return false;
+    }
+  }
+  // Params
+  if (state.minParams != null && model.params < state.minParams * 1e6) return false;
+  if (state.maxParams != null && model.params > state.maxParams * 1e6) return false;
+  // Context
+  if (state.minCtx != null && (model.max_tokens == null || model.max_tokens < state.minCtx)) return false;
+  // Min coverage: at least one visible bench must have coverage >= threshold
+  if (state.minCoverage > 0) {
+    const hasGoodCoverage = visibleBenches.some(b => getCoverage(model, b) >= state.minCoverage / 100);
+    if (!hasGoodCoverage) return false;
+  }
+  return true;
+}
+
+function renderTable() {
+  const thead = document.getElementById("thead");
+  const tbody = document.getElementById("tbody");
+
+  // Header
+  const baseCols = [
+    { key: "name", label: "Model", cls: "model-name" },
+    { key: "params", label: "Params", cls: "params-cell" },
+    { key: "max_tokens", label: "Ctx", cls: "ctx-cell" },
+  ];
+  const benchCols = visibleBenches.map(b => ({ key: b, label: BENCH_LABELS[b], cls: "score-cell" }));
+  const allCols = [...baseCols, ...benchCols];
+
+  thead.innerHTML = "<tr>" + allCols.map(c => {
+    const isSort = state.sortCol === c.key;
+    const arrow = isSort ? (state.sortDir === "desc" ? " \u25BC" : " \u25B2") : "";
+    const arrowCls = isSort ? "active" : "";
+    return `<th data-col="${c.key}">${c.label}<span class="sort-arrow ${arrowCls}">${arrow}</span></th>`;
+  }).join("") + "</tr>";
+
+  // Sort & filter
+  let filtered = DATA.filter(matchesFilters);
+  filtered.sort((a, b) => {
+    let va = sortValue(a), vb = sortValue(b);
+    if (typeof va === "string") {
+      const cmp = va.localeCompare(vb);
+      return state.sortDir === "asc" ? cmp : -cmp;
+    }
+    return state.sortDir === "asc" ? va - vb : vb - va;
+  });
+
+  // Render rows
+  const rows = filtered.map(model => {
+    let cells = "";
+    // Name
+    cells += `<td class="model-name" title="${model.full_name}">${model.name}</td>`;
+    // Params
+    cells += `<td class="params-cell">${formatParams(model.params)}</td>`;
+    // Ctx
+    cells += `<td class="ctx-cell">${formatCtx(model.max_tokens)}</td>`;
+    // Bench scores
+    for (const bench of visibleBenches) {
+      const b = model.benchmarks[bench];
+      if (!b) {
+        cells += `<td class="score-cell no-data">--</td>`;
+      } else {
+        const isSparse = b.n / b.total < 0.5;
+        const heat = heatClass(b.avg, bench);
+        cells += `<td class="score-cell ${heat} ${isSparse ? 'sparse' : ''}"><span class="avg">${b.avg.toFixed(1)}</span><span class="coverage">(${b.n}/${b.total})</span></td>`;
+      }
+    }
+    return `<tr data-model="${model.name}">${cells}</tr>`;
+  }).join("");
+
+  tbody.innerHTML = rows;
+
+  // Count
+  document.getElementById("count-info").textContent = `${filtered.length} / ${DATA.length} models`;
+
+  // Click handlers for headers
+  thead.querySelectorAll("th").forEach(th => {
+    th.addEventListener("click", () => {
+      const col = th.dataset.col;
+      if (state.sortCol === col) {
+        state.sortDir = state.sortDir === "desc" ? "asc" : "desc";
+      } else {
+        state.sortCol = col;
+        state.sortDir = col === "name" ? "asc" : "desc";
+      }
+      document.getElementById("sort-col").value = state.sortCol;
+      document.getElementById("sort-dir").value = state.sortDir;
+      renderTable();
+    });
+  });
+
+  // Click handlers for rows
+  tbody.querySelectorAll("tr").forEach(tr => {
+    tr.addEventListener("click", () => {
+      const name = tr.dataset.model;
+      const model = DATA.find(m => m.name === name);
+      if (model) showDetail(model);
+    });
+  });
+}
+
+function showDetail(model) {
+  const panel = document.getElementById("detail-panel");
+  const content = document.getElementById("detail-content");
+
+  let html = `<h3>${model.name}</h3>`;
+  html += `<p style="color:var(--text2);font-size:12px;margin-bottom:12px">${model.full_name}</p>`;
+  html += `<div class="detail-section"><h4>Properties</h4>`;
+  html += `<table class="detail-table"><tr><td>Parameters</td><td>${formatParams(model.params)}</td></tr>`;
+  html += `<tr><td>Max tokens</td><td>${formatCtx(model.max_tokens)}</td></tr>`;
+  html += `<tr><td>Embedding dim</td><td>${model.embed_dim || '?'}</td></tr></table></div>`;
+
+  for (const bench of BENCH_NAMES) {
+    const b = model.benchmarks[bench];
+    if (!b) continue;
+    html += `<div class="detail-section"><h4>${BENCH_LABELS[bench]} (avg ${b.avg.toFixed(1)}%, ${b.n}/${b.total} tasks)</h4>`;
+    html += `<table class="detail-table"><thead><tr><th>Task</th><th>Score</th></tr></thead><tbody>`;
+    const sorted = Object.entries(b.scores).sort((a, b) => b[1] - a[1]);
+    for (const [task, score] of sorted) {
+      const heat = heatClass(score, bench);
+      html += `<tr><td>${task}</td><td class="${heat}">${score.toFixed(1)}%</td></tr>`;
+    }
+    // Missing tasks
+    const allTasks = BENCH_TOTALS_DETAIL[bench] || [];
+    const missing = allTasks.filter(t => !(t in b.scores));
+    for (const task of missing) {
+      html += `<tr><td style="color:var(--text2)">${task}</td><td style="color:var(--bg3)">--</td></tr>`;
+    }
+    html += `</tbody></table></div>`;
+  }
+
+  content.innerHTML = html;
+  panel.classList.add("open");
+}
+
+const BENCH_TOTALS_DETAIL = {
+  Prose: ["ArguAna","ClimateFEVERHardNegatives","FEVERHardNegatives","FiQA2018","HotpotQAHardNegatives","TRECCOVID","Touche2020Retrieval.v3","SCIDOCS","CQADupstackGamingRetrieval","CQADupstackUnixRetrieval"],
+  RTEB_Code: ["AppsRetrieval","Code1Retrieval","DS1000Retrieval","FreshStackRetrieval","HumanEvalRetrieval","MBPPRetrieval","WikiSQLRetrieval"],
+  CoIR: ["COIRCodeSearchNetRetrieval","CodeFeedbackMT","CodeFeedbackST","CodeSearchNetCCRetrieval","CodeTransOceanContest","CodeTransOceanDL","CosQA","StackOverflowQA","SyntheticText2SQL"],
+  Instruct: ["Core17InstructionRetrieval","News21InstructionRetrieval","Robust04InstructionRetrieval"],
+  LongCtx: ["LEMBNarrativeQARetrieval","LEMBNeedleRetrieval","LEMBPasskeyRetrieval","LEMBQMSumRetrieval","LEMBSummScreenFDRetrieval","LEMBWikimQARetrieval","MultiLongDocRetrieval"],
+  Reason: ["TempReasonL1","TempReasonL2Context","TempReasonL2Fact","TempReasonL2Pure","TempReasonL3Context","TempReasonL3Fact","TempReasonL3Pure"],
+};
+
+function initControls() {
+  // Bench toggles
+  const togglesDiv = document.getElementById("bench-toggles");
+  for (const b of BENCH_NAMES) {
+    const div = document.createElement("div");
+    div.className = "bench-toggle";
+    div.innerHTML = `<input type="checkbox" id="bench-${b}" checked><label for="bench-${b}">${BENCH_LABELS[b]}</label>`;
+    togglesDiv.appendChild(div);
+    div.querySelector("input").addEventListener("change", (e) => {
+      if (e.target.checked) {
+        if (!visibleBenches.includes(b)) visibleBenches.push(b);
+      } else {
+        visibleBenches = visibleBenches.filter(x => x !== b);
+      }
+      // Maintain order
+      visibleBenches.sort((a, b) => BENCH_NAMES.indexOf(a) - BENCH_NAMES.indexOf(b));
+      renderTable();
+    });
+  }
+
+  // Presets
+  const presetsDiv = document.getElementById("presets");
+  for (const preset of PRESETS) {
+    const btn = document.createElement("button");
+    btn.textContent = preset.name;
+    btn.addEventListener("click", () => applyPreset(preset));
+    presetsDiv.appendChild(btn);
+  }
+
+  // Inputs
+  document.getElementById("search").addEventListener("input", (e) => { state.search = e.target.value; renderTable(); });
+  document.getElementById("min-params").addEventListener("input", (e) => { state.minParams = e.target.value ? Number(e.target.value) : null; renderTable(); });
+  document.getElementById("max-params").addEventListener("input", (e) => { state.maxParams = e.target.value ? Number(e.target.value) : null; renderTable(); });
+  document.getElementById("min-ctx").addEventListener("input", (e) => { state.minCtx = e.target.value ? Number(e.target.value) : null; renderTable(); });
+  document.getElementById("sort-col").addEventListener("change", (e) => { state.sortCol = e.target.value; renderTable(); });
+  document.getElementById("sort-dir").addEventListener("change", (e) => { state.sortDir = e.target.value; renderTable(); });
+  document.getElementById("min-coverage-range").addEventListener("input", (e) => {
+    state.minCoverage = Number(e.target.value);
+    document.getElementById("min-coverage-val").textContent = state.minCoverage + "%";
+    renderTable();
+  });
+
+  // Detail panel close
+  document.getElementById("close-detail").addEventListener("click", () => {
+    document.getElementById("detail-panel").classList.remove("open");
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") document.getElementById("detail-panel").classList.remove("open");
+  });
+}
+
+function applyPreset(preset) {
+  document.getElementById("search").value = preset.search;
+  state.search = preset.search;
+  document.getElementById("min-params").value = preset.minParams;
+  state.minParams = preset.minParams ? Number(preset.minParams) : null;
+  document.getElementById("max-params").value = preset.maxParams;
+  state.maxParams = preset.maxParams ? Number(preset.maxParams) : null;
+  document.getElementById("min-ctx").value = preset.minCtx;
+  state.minCtx = preset.minCtx ? Number(preset.minCtx) : null;
+  state.sortCol = preset.sort;
+  state.sortDir = preset.dir;
+  state.minCoverage = preset.coverage;
+  document.getElementById("sort-col").value = preset.sort;
+  document.getElementById("sort-dir").value = preset.dir;
+  document.getElementById("min-coverage-range").value = preset.coverage;
+  document.getElementById("min-coverage-val").textContent = preset.coverage + "%";
+
+  visibleBenches = preset.benches.slice();
+  for (const b of BENCH_NAMES) {
+    document.getElementById("bench-" + b).checked = visibleBenches.includes(b);
+  }
+
+  // Highlight active preset
+  document.querySelectorAll(".presets button").forEach(btn => btn.classList.remove("active"));
+  const btns = document.querySelectorAll(".presets button");
+  const idx = PRESETS.findIndex(p => p.name === preset.name);
+  if (idx >= 0 && btns[idx]) btns[idx].classList.add("active");
+
+  renderTable();
+}
+
+// Load data (from models.js <script> tag, no server needed)
+function init() {
+  if (typeof MODEL_DATA === "undefined") {
+    document.getElementById("count-info").textContent = "Error: models.js not found. Run pull_results.py first.";
+    return;
+  }
+  DATA = MODEL_DATA;
+  document.getElementById("data-info").textContent = `${DATA.length} models loaded`;
+  initControls();
+  renderTable();
+}
+
+init();
+</script>
+</body>
+</html>
