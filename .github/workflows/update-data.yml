@@ -1,0 +1,52 @@
+name: Update benchmark data
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Every Monday at 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Clone MTEB results
+        run: git clone --depth 1 https://github.com/embeddings-benchmark/results /tmp/mteb-results
+
+      - name: Pull results
+        run: |
+          python pull_results.py
+          new_count=$(python -c "import json; print(len(json.load(open('models.json'))))")
+          old_count=$(git show HEAD:models.json | python -c "import json,sys; print(len(json.load(sys.stdin)))" 2>/dev/null || echo 0)
+          if [ "$old_count" -gt 0 ] && [ "$new_count" -lt $((old_count / 2)) ]; then
+            echo "::error::Model count dropped from $old_count to $new_count (>50% drop). Aborting."
+            exit 1
+          fi
+          echo "Models: $old_count -> $new_count"
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet models.json models.js; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add models.json models.js
+          git commit -m "Update benchmark data ($(date -u +%Y-%m-%d))"
+          git push
