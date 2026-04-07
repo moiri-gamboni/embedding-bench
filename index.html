@@ -218,7 +218,7 @@ const PRESETS = [
   { name: "Code+Prose", search: "", minParams: "", maxParams: "", minCtx: "", sort: "RTEB_Code", dir: "desc", benches: ["Prose", "RTEB_Code", "CoIR"], coverage: 50 },
   { name: "Tiny (<100M)", search: "", minParams: "", maxParams: "100", minCtx: "", sort: "Prose", dir: "desc", benches: BENCH_NAMES.slice(), coverage: 0 },
   { name: "Long ctx", search: "", minParams: "", maxParams: "", minCtx: "8192", sort: "LongCtx", dir: "desc", benches: ["Prose", "RTEB_Code", "LongCtx"], coverage: 0 },
-  { name: "Candidates", search: "granite|qwen3|embeddinggemma|gte-multilingual|arctic-embed|octen|modernbert|bge-m3$|nomic-embed-text-v1.5$", minParams: "", maxParams: "", minCtx: "", sort: "RTEB_Code", dir: "desc", benches: BENCH_NAMES.slice(), coverage: 0 },
+  { name: "Candidates", search: "granite|qwen3|F2LLM|jina-embeddings-v5|harrier|pplx-embed|arctic-embed|octen|modernbert|bge-m3$|nomic-embed-text-v1.5$", minParams: "", maxParams: "", minCtx: "", sort: "RTEB_Code", dir: "desc", benches: BENCH_NAMES.slice(), coverage: 0 },
 ];
 
 let DATA = [];
