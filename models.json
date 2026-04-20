@@ -6979,6 +6979,51 @@
     }
   },
   {
+    "name": "BidirLM-270M-Embedding",
+    "full_name": "BidirLM/BidirLM-270M-Embedding",
+    "params": 268098176,
+    "max_tokens": 512,
+    "embed_dim": 640,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 50.85,
+          "TRECCOVID": 76.42,
+          "SCIDOCS": 18.07
+        },
+        "avg": 48.45,
+        "n": 3,
+        "total": 10
+      },
+      "CoIR": {
+        "scores": {
+          "StackOverflowQA": 78.93
+        },
+        "avg": 78.93,
+        "n": 1,
+        "total": 9
+      },
+      "Instruct": {
+        "scores": {
+          "Core17InstructionRetrieval": 38.17,
+          "News21InstructionRetrieval": 39.73,
+          "Robust04InstructionRetrieval": 37.86
+        },
+        "avg": 38.59,
+        "n": 3,
+        "total": 3
+      },
+      "Reason": {
+        "scores": {
+          "TempReasonL1": 0.13
+        },
+        "avg": 0.13,
+        "n": 1,
+        "total": 7
+      }
+    }
+  },
+  {
     "name": "MicroLlama-text-embedding",
     "full_name": "keeeeenw/MicroLlama-text-embedding",
     "params": 272000000,
@@ -10735,10 +10780,13 @@
       },
       "LongCtx": {
         "scores": {
+          "LEMBNarrativeQARetrieval": 48.79,
+          "LEMBQMSumRetrieval": 36.11,
+          "LEMBWikimQARetrieval": 79.46,
           "MultiLongDocRetrieval": 51.27
         },
-        "avg": 51.27,
-        "n": 1,
+        "avg": 53.91,
+        "n": 4,
         "total": 7
       },
       "Reason": {
@@ -11094,6 +11142,51 @@
     }
   },
   {
+    "name": "BidirLM-0.6B-Embedding",
+    "full_name": "BidirLM/BidirLM-0.6B-Embedding",
+    "params": 596049920,
+    "max_tokens": 512,
+    "embed_dim": 1024,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 52.74,
+          "TRECCOVID": 81.52,
+          "SCIDOCS": 21.55
+        },
+        "avg": 51.94,
+        "n": 3,
+        "total": 10
+      },
+      "CoIR": {
+        "scores": {
+          "StackOverflowQA": 90.87
+        },
+        "avg": 90.87,
+        "n": 1,
+        "total": 9
+      },
+      "Instruct": {
+        "scores": {
+          "Core17InstructionRetrieval": 39.79,
+          "News21InstructionRetrieval": 42.93,
+          "Robust04InstructionRetrieval": 42.54
+        },
+        "avg": 41.75,
+        "n": 3,
+        "total": 3
+      },
+      "Reason": {
+        "scores": {
+          "TempReasonL1": 0.42
+        },
+        "avg": 0.42,
+        "n": 1,
+        "total": 7
+      }
+    }
+  },
+  {
     "name": "F2LLM-v2-0.6B",
     "full_name": "codefuse-ai/F2LLM-v2-0.6B",
     "params": 596049920,
@@ -11291,6 +11384,51 @@
           "TempReasonL1": 1.43
         },
         "avg": 1.43,
+        "n": 1,
+        "total": 7
+      }
+    }
+  },
+  {
+    "name": "BidirLM-1B-Embedding",
+    "full_name": "BidirLM/BidirLM-1B-Embedding",
+    "params": 999885952,
+    "max_tokens": 512,
+    "embed_dim": 1152,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 54.11,
+          "TRECCOVID": 82.93,
+          "SCIDOCS": 20.83
+        },
+        "avg": 52.62,
+        "n": 3,
+        "total": 10
+      },
+      "CoIR": {
+        "scores": {
+          "StackOverflowQA": 88.94
+        },
+        "avg": 88.94,
+        "n": 1,
+        "total": 9
+      },
+      "Instruct": {
+        "scores": {
+          "Core17InstructionRetrieval": 42.08,
+          "News21InstructionRetrieval": 42.42,
+          "Robust04InstructionRetrieval": 43.78
+        },
+        "avg": 42.76,
+        "n": 3,
+        "total": 3
+      },
+      "Reason": {
+        "scores": {
+          "TempReasonL1": 0.25
+        },
+        "avg": 0.25,
         "n": 1,
         "total": 7
       }
