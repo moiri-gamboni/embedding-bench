@@ -3300,9 +3300,9 @@
       },
       "LongCtx": {
         "scores": {
-          "MultiLongDocRetrieval": 1.93
+          "MultiLongDocRetrieval": 1.73
         },
-        "avg": 1.93,
+        "avg": 1.73,
         "n": 1,
         "total": 7
       },
@@ -6758,9 +6758,9 @@
       },
       "LongCtx": {
         "scores": {
-          "MultiLongDocRetrieval": 25.21
+          "MultiLongDocRetrieval": 13.06
         },
-        "avg": 25.21,
+        "avg": 13.06,
         "n": 1,
         "total": 7
       },
@@ -7997,9 +7997,9 @@
       },
       "LongCtx": {
         "scores": {
-          "MultiLongDocRetrieval": 39.77
+          "MultiLongDocRetrieval": 22.03
         },
-        "avg": 39.77,
+        "avg": 22.03,
         "n": 1,
         "total": 7
       },
@@ -11246,9 +11246,9 @@
       },
       "LongCtx": {
         "scores": {
-          "MultiLongDocRetrieval": 40.6
+          "MultiLongDocRetrieval": 21.68
         },
-        "avg": 40.6,
+        "avg": 21.68,
         "n": 1,
         "total": 7
       },
