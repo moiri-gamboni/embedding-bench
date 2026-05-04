@@ -3317,6 +3317,95 @@
     }
   },
   {
+    "name": "granite-embedding-97m-multilingual-r2",
+    "full_name": "ibm-granite/granite-embedding-97m-multilingual-r2",
+    "params": 97441152,
+    "max_tokens": 1024,
+    "embed_dim": 384,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 53.09,
+          "ClimateFEVERHardNegatives": 28.01,
+          "FEVERHardNegatives": 85.6,
+          "FiQA2018": 34.4,
+          "HotpotQAHardNegatives": 61.7,
+          "TRECCOVID": 66.27,
+          "Touche2020Retrieval.v3": 53.89,
+          "SCIDOCS": 20.36,
+          "CQADupstackGamingRetrieval": 55.87,
+          "CQADupstackUnixRetrieval": 41.77
+        },
+        "avg": 50.1,
+        "n": 10,
+        "total": 10
+      },
+      "RTEB_Code": {
+        "scores": {
+          "AppsRetrieval": 50.24,
+          "DS1000Retrieval": 40.62,
+          "FreshStackRetrieval": 30.07,
+          "HumanEvalRetrieval": 86.62,
+          "MBPPRetrieval": 85.58,
+          "WikiSQLRetrieval": 97.87
+        },
+        "avg": 65.17,
+        "n": 6,
+        "total": 7
+      },
+      "CoIR": {
+        "scores": {
+          "COIRCodeSearchNetRetrieval": 92.59,
+          "CodeFeedbackMT": 55.16,
+          "CodeFeedbackST": 75.17,
+          "CodeSearchNetCCRetrieval": 58.33,
+          "CodeTransOceanContest": 76.47,
+          "CodeTransOceanDL": 34.05,
+          "CosQA": 33.99,
+          "StackOverflowQA": 81.99,
+          "SyntheticText2SQL": 52.31
+        },
+        "avg": 62.23,
+        "n": 9,
+        "total": 9
+      },
+      "Instruct": {
+        "scores": {
+          "Core17InstructionRetrieval": 31.83,
+          "News21InstructionRetrieval": 36.48,
+          "Robust04InstructionRetrieval": 33.2
+        },
+        "avg": 33.84,
+        "n": 3,
+        "total": 3
+      },
+      "LongCtx": {
+        "scores": {
+          "LEMBNarrativeQARetrieval": 46.01,
+          "LEMBQMSumRetrieval": 41.16,
+          "LEMBWikimQARetrieval": 79.43
+        },
+        "avg": 55.53,
+        "n": 3,
+        "total": 7
+      },
+      "Reason": {
+        "scores": {
+          "TempReasonL1": 5.15,
+          "TempReasonL2Context": 11.41,
+          "TempReasonL2Fact": 18.68,
+          "TempReasonL2Pure": 9.57,
+          "TempReasonL3Context": 11.57,
+          "TempReasonL3Fact": 19.0,
+          "TempReasonL3Pure": 11.57
+        },
+        "avg": 12.42,
+        "n": 7,
+        "total": 7
+      }
+    }
+  },
+  {
     "name": "ternary-weight-embedding",
     "full_name": "malenia1/ternary-weight-embedding",
     "params": 98688145,
@@ -6590,6 +6679,28 @@
     }
   },
   {
+    "name": "LateOn",
+    "full_name": "lightonai/LateOn",
+    "params": 149015808,
+    "max_tokens": 8192,
+    "embed_dim": 768,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 50.52,
+          "FiQA2018": 53.12,
+          "TRECCOVID": 83.6,
+          "SCIDOCS": 21.9,
+          "CQADupstackGamingRetrieval": 65.56,
+          "CQADupstackUnixRetrieval": 48.28
+        },
+        "avg": 53.83,
+        "n": 6,
+        "total": 10
+      }
+    }
+  },
+  {
     "name": "LateOn-Code",
     "full_name": "lightonai/LateOn-Code",
     "params": 149015808,
@@ -6652,6 +6763,28 @@
         "avg": 66.54,
         "n": 9,
         "total": 9
+      }
+    }
+  },
+  {
+    "name": "LateOn-unsupervised",
+    "full_name": "lightonai/LateOn-unsupervised",
+    "params": 149015808,
+    "max_tokens": 8192,
+    "embed_dim": 768,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 43.12,
+          "FiQA2018": 51.93,
+          "TRECCOVID": 69.81,
+          "SCIDOCS": 21.13,
+          "CQADupstackGamingRetrieval": 65.95,
+          "CQADupstackUnixRetrieval": 49.01
+        },
+        "avg": 50.16,
+        "n": 6,
+        "total": 10
       }
     }
   },
@@ -7851,6 +7984,95 @@
         "avg": 54.75,
         "n": 6,
         "total": 10
+      }
+    }
+  },
+  {
+    "name": "granite-embedding-311m-multilingual-r2",
+    "full_name": "ibm-granite/granite-embedding-311m-multilingual-r2",
+    "params": 311664384,
+    "max_tokens": 1024,
+    "embed_dim": 768,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 57.11,
+          "ClimateFEVERHardNegatives": 30.5,
+          "FEVERHardNegatives": 83.7,
+          "FiQA2018": 39.88,
+          "HotpotQAHardNegatives": 63.82,
+          "TRECCOVID": 68.44,
+          "Touche2020Retrieval.v3": 56.05,
+          "SCIDOCS": 21.86,
+          "CQADupstackGamingRetrieval": 58.64,
+          "CQADupstackUnixRetrieval": 45.5
+        },
+        "avg": 52.55,
+        "n": 10,
+        "total": 10
+      },
+      "RTEB_Code": {
+        "scores": {
+          "AppsRetrieval": 60.63,
+          "DS1000Retrieval": 44.81,
+          "FreshStackRetrieval": 31.44,
+          "HumanEvalRetrieval": 91.49,
+          "MBPPRetrieval": 87.15,
+          "WikiSQLRetrieval": 98.04
+        },
+        "avg": 68.93,
+        "n": 6,
+        "total": 7
+      },
+      "CoIR": {
+        "scores": {
+          "COIRCodeSearchNetRetrieval": 93.34,
+          "CodeFeedbackMT": 56.96,
+          "CodeFeedbackST": 77.25,
+          "CodeSearchNetCCRetrieval": 62.52,
+          "CodeTransOceanContest": 83.23,
+          "CodeTransOceanDL": 34.44,
+          "CosQA": 35.38,
+          "StackOverflowQA": 86.32,
+          "SyntheticText2SQL": 55.71
+        },
+        "avg": 65.02,
+        "n": 9,
+        "total": 9
+      },
+      "Instruct": {
+        "scores": {
+          "Core17InstructionRetrieval": 32.04,
+          "News21InstructionRetrieval": 39.69,
+          "Robust04InstructionRetrieval": 38.43
+        },
+        "avg": 36.72,
+        "n": 3,
+        "total": 3
+      },
+      "LongCtx": {
+        "scores": {
+          "LEMBNarrativeQARetrieval": 51.11,
+          "LEMBQMSumRetrieval": 47.25,
+          "LEMBWikimQARetrieval": 85.23
+        },
+        "avg": 61.2,
+        "n": 3,
+        "total": 7
+      },
+      "Reason": {
+        "scores": {
+          "TempReasonL1": 11.25,
+          "TempReasonL2Context": 16.04,
+          "TempReasonL2Fact": 21.95,
+          "TempReasonL2Pure": 9.28,
+          "TempReasonL3Context": 16.0,
+          "TempReasonL3Fact": 22.2,
+          "TempReasonL3Pure": 11.76
+        },
+        "avg": 15.5,
+        "n": 7,
+        "total": 7
       }
     }
   },
