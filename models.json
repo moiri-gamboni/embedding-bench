@@ -3266,10 +3266,15 @@
       },
       "RTEB_Code": {
         "scores": {
-          "AppsRetrieval": 52.2
+          "AppsRetrieval": 52.2,
+          "DS1000Retrieval": 49.59,
+          "FreshStackRetrieval": 26.2,
+          "HumanEvalRetrieval": 82.42,
+          "MBPPRetrieval": 76.0,
+          "WikiSQLRetrieval": 93.94
         },
-        "avg": 52.2,
-        "n": 1,
+        "avg": 63.39,
+        "n": 6,
         "total": 7
       },
       "CoIR": {
@@ -3300,18 +3305,27 @@
       },
       "LongCtx": {
         "scores": {
+          "LEMBNarrativeQARetrieval": 9.61,
+          "LEMBQMSumRetrieval": 18.39,
+          "LEMBWikimQARetrieval": 25.41,
           "MultiLongDocRetrieval": 1.73
         },
-        "avg": 1.73,
-        "n": 1,
+        "avg": 13.79,
+        "n": 4,
         "total": 7
       },
       "Reason": {
         "scores": {
-          "TempReasonL1": 1.31
+          "TempReasonL1": 1.31,
+          "TempReasonL2Context": 9.55,
+          "TempReasonL2Fact": 12.58,
+          "TempReasonL2Pure": 0.38,
+          "TempReasonL3Context": 9.53,
+          "TempReasonL3Fact": 12.32,
+          "TempReasonL3Pure": 4.64
         },
-        "avg": 1.31,
-        "n": 1,
+        "avg": 7.19,
+        "n": 7,
         "total": 7
       }
     }
@@ -6857,10 +6871,15 @@
       },
       "RTEB_Code": {
         "scores": {
-          "AppsRetrieval": 58.95
+          "AppsRetrieval": 58.95,
+          "DS1000Retrieval": 52.63,
+          "FreshStackRetrieval": 27.7,
+          "HumanEvalRetrieval": 85.97,
+          "MBPPRetrieval": 78.38,
+          "WikiSQLRetrieval": 91.78
         },
-        "avg": 58.95,
-        "n": 1,
+        "avg": 65.9,
+        "n": 6,
         "total": 7
       },
       "CoIR": {
@@ -6891,18 +6910,27 @@
       },
       "LongCtx": {
         "scores": {
+          "LEMBNarrativeQARetrieval": 29.18,
+          "LEMBQMSumRetrieval": 32.6,
+          "LEMBWikimQARetrieval": 69.22,
           "MultiLongDocRetrieval": 13.06
         },
-        "avg": 13.06,
-        "n": 1,
+        "avg": 36.02,
+        "n": 4,
         "total": 7
       },
       "Reason": {
         "scores": {
-          "TempReasonL1": 1.18
+          "TempReasonL1": 1.18,
+          "TempReasonL2Context": 10.45,
+          "TempReasonL2Fact": 13.29,
+          "TempReasonL2Pure": 0.39,
+          "TempReasonL3Context": 9.56,
+          "TempReasonL3Fact": 12.45,
+          "TempReasonL3Pure": 4.81
         },
-        "avg": 1.18,
-        "n": 1,
+        "avg": 7.45,
+        "n": 7,
         "total": 7
       }
     }
@@ -8185,10 +8213,15 @@
       },
       "RTEB_Code": {
         "scores": {
-          "AppsRetrieval": 83.86
+          "AppsRetrieval": 83.86,
+          "DS1000Retrieval": 60.2,
+          "FreshStackRetrieval": 32.23,
+          "HumanEvalRetrieval": 94.81,
+          "MBPPRetrieval": 84.63,
+          "WikiSQLRetrieval": 98.62
         },
-        "avg": 83.86,
-        "n": 1,
+        "avg": 75.73,
+        "n": 6,
         "total": 7
       },
       "CoIR": {
@@ -8219,18 +8252,27 @@
       },
       "LongCtx": {
         "scores": {
+          "LEMBNarrativeQARetrieval": 48.16,
+          "LEMBQMSumRetrieval": 40.15,
+          "LEMBWikimQARetrieval": 84.18,
           "MultiLongDocRetrieval": 22.03
         },
-        "avg": 22.03,
-        "n": 1,
+        "avg": 48.63,
+        "n": 4,
         "total": 7
       },
       "Reason": {
         "scores": {
-          "TempReasonL1": 1.32
+          "TempReasonL1": 1.32,
+          "TempReasonL2Context": 16.16,
+          "TempReasonL2Fact": 25.83,
+          "TempReasonL2Pure": 1.37,
+          "TempReasonL3Context": 14.77,
+          "TempReasonL3Fact": 22.63,
+          "TempReasonL3Pure": 4.92
         },
-        "avg": 1.32,
-        "n": 1,
+        "avg": 12.43,
+        "n": 7,
         "total": 7
       }
     }
@@ -11434,10 +11476,15 @@
       },
       "RTEB_Code": {
         "scores": {
-          "AppsRetrieval": 90.45
+          "AppsRetrieval": 90.45,
+          "DS1000Retrieval": 65.07,
+          "FreshStackRetrieval": 35.19,
+          "HumanEvalRetrieval": 96.23,
+          "MBPPRetrieval": 88.48,
+          "WikiSQLRetrieval": 98.34
         },
-        "avg": 90.45,
-        "n": 1,
+        "avg": 78.96,
+        "n": 6,
         "total": 7
       },
       "CoIR": {
@@ -11468,18 +11515,27 @@
       },
       "LongCtx": {
         "scores": {
+          "LEMBNarrativeQARetrieval": 51.95,
+          "LEMBQMSumRetrieval": 45.22,
+          "LEMBWikimQARetrieval": 89.76,
           "MultiLongDocRetrieval": 21.68
         },
-        "avg": 21.68,
-        "n": 1,
+        "avg": 52.15,
+        "n": 4,
         "total": 7
       },
       "Reason": {
         "scores": {
-          "TempReasonL1": 1.33
+          "TempReasonL1": 1.33,
+          "TempReasonL2Context": 30.71,
+          "TempReasonL2Fact": 35.12,
+          "TempReasonL2Pure": 2.65,
+          "TempReasonL3Context": 23.54,
+          "TempReasonL3Fact": 27.74,
+          "TempReasonL3Pure": 6.17
         },
-        "avg": 1.33,
-        "n": 1,
+        "avg": 18.18,
+        "n": 7,
         "total": 7
       }
     }
@@ -11606,6 +11662,82 @@
           "TempReasonL1": 1.43
         },
         "avg": 1.43,
+        "n": 1,
+        "total": 7
+      }
+    }
+  },
+  {
+    "name": "jina-embeddings-v5-omni-nano",
+    "full_name": "jinaai/jina-embeddings-v5-omni-nano",
+    "params": 985984512,
+    "max_tokens": 8192.0,
+    "embed_dim": 768,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 65.7,
+          "ClimateFEVERHardNegatives": 40.03,
+          "FEVERHardNegatives": 89.82,
+          "FiQA2018": 47.85,
+          "HotpotQAHardNegatives": 69.28,
+          "TRECCOVID": 77.6,
+          "Touche2020Retrieval.v3": 66.12,
+          "SCIDOCS": 22.6,
+          "CQADupstackGamingRetrieval": 61.6,
+          "CQADupstackUnixRetrieval": 47.4
+        },
+        "avg": 58.8,
+        "n": 10,
+        "total": 10
+      },
+      "RTEB_Code": {
+        "scores": {
+          "AppsRetrieval": 58.39,
+          "DS1000Retrieval": 54.94,
+          "FreshStackRetrieval": 38.31,
+          "HumanEvalRetrieval": 92.12,
+          "MBPPRetrieval": 86.7,
+          "WikiSQLRetrieval": 97.65
+        },
+        "avg": 71.35,
+        "n": 6,
+        "total": 7
+      },
+      "CoIR": {
+        "scores": {
+          "StackOverflowQA": 92.34
+        },
+        "avg": 92.34,
+        "n": 1,
+        "total": 9
+      },
+      "Instruct": {
+        "scores": {
+          "Core17InstructionRetrieval": 41.22,
+          "News21InstructionRetrieval": 41.31,
+          "Robust04InstructionRetrieval": 45.19
+        },
+        "avg": 42.57,
+        "n": 3,
+        "total": 3
+      },
+      "LongCtx": {
+        "scores": {
+          "LEMBNarrativeQARetrieval": 52.17,
+          "LEMBQMSumRetrieval": 31.83,
+          "LEMBWikimQARetrieval": 74.87,
+          "MultiLongDocRetrieval": 28.28
+        },
+        "avg": 46.79,
+        "n": 4,
+        "total": 7
+      },
+      "Reason": {
+        "scores": {
+          "TempReasonL1": 1.24
+        },
+        "avg": 1.24,
         "n": 1,
         "total": 7
       }
