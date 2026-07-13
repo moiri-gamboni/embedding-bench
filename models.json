@@ -1,5 +1,96 @@
 [
   {
+    "name": "baseline-bm25s",
+    "full_name": "mteb/baseline-bm25s",
+    "params": 0,
+    "max_tokens": null,
+    "embed_dim": null,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 49.28,
+          "ClimateFEVERHardNegatives": 14.02,
+          "FEVERHardNegatives": 51.99,
+          "FiQA2018": 25.14,
+          "HotpotQAHardNegatives": 58.88,
+          "TRECCOVID": 62.31,
+          "Touche2020Retrieval.v3": 65.68,
+          "SCIDOCS": 15.78,
+          "CQADupstackGamingRetrieval": 48.47,
+          "CQADupstackUnixRetrieval": 29.17
+        },
+        "avg": 42.07,
+        "n": 10,
+        "total": 10
+      },
+      "RTEB_Code": {
+        "scores": {
+          "AppsRetrieval": 4.76,
+          "Code1Retrieval": 44.74,
+          "DS1000Retrieval": 41.45,
+          "FreshStackRetrieval": 27.89,
+          "HumanEvalRetrieval": 38.47,
+          "MBPPRetrieval": 11.64,
+          "WikiSQLRetrieval": 52.16
+        },
+        "avg": 31.59,
+        "n": 7,
+        "total": 7
+      },
+      "CoIR": {
+        "scores": {
+          "COIRCodeSearchNetRetrieval": 70.34,
+          "CodeFeedbackMT": 59.19,
+          "CodeFeedbackST": 68.15,
+          "CodeSearchNetCCRetrieval": 59.32,
+          "CodeTransOceanContest": 47.78,
+          "CodeTransOceanDL": 34.42,
+          "CosQA": 18.75,
+          "StackOverflowQA": 70.26,
+          "SyntheticText2SQL": 24.94
+        },
+        "avg": 50.35,
+        "n": 9,
+        "total": 9
+      },
+      "Instruct": {
+        "scores": {
+          "Core17InstructionRetrieval": 32.05,
+          "News21InstructionRetrieval": 34.48,
+          "Robust04InstructionRetrieval": 32.42
+        },
+        "avg": 32.98,
+        "n": 3,
+        "total": 3
+      },
+      "LongCtx": {
+        "scores": {
+          "LEMBNarrativeQARetrieval": 73.2,
+          "LEMBQMSumRetrieval": 83.23,
+          "LEMBWikimQARetrieval": 97.67,
+          "MultiLongDocRetrieval": 11.25
+        },
+        "avg": 66.34,
+        "n": 4,
+        "total": 7
+      },
+      "Reason": {
+        "scores": {
+          "TempReasonL1": 1.13,
+          "TempReasonL2Context": 11.01,
+          "TempReasonL2Fact": 7.42,
+          "TempReasonL2Pure": 0.07,
+          "TempReasonL3Context": 10.81,
+          "TempReasonL3Fact": 8.49,
+          "TempReasonL3Pure": 2.65
+        },
+        "avg": 5.94,
+        "n": 7,
+        "total": 7
+      }
+    }
+  },
+  {
     "name": "baseline-random-encoder",
     "full_name": "mteb/baseline-random-encoder",
     "params": 0,
@@ -752,6 +843,39 @@
         "avg": 6.33,
         "n": 7,
         "total": 7
+      }
+    }
+  },
+  {
+    "name": "potion-code-16M-v2",
+    "full_name": "minishlab/potion-code-16M-v2",
+    "params": 16244992,
+    "max_tokens": null,
+    "embed_dim": 256,
+    "benchmarks": {
+      "RTEB_Code": {
+        "scores": {
+          "AppsRetrieval": 5.19
+        },
+        "avg": 5.19,
+        "n": 1,
+        "total": 7
+      },
+      "CoIR": {
+        "scores": {
+          "COIRCodeSearchNetRetrieval": 73.68,
+          "CodeFeedbackMT": 38.02,
+          "CodeFeedbackST": 53.22,
+          "CodeSearchNetCCRetrieval": 48.67,
+          "CodeTransOceanContest": 43.66,
+          "CodeTransOceanDL": 32.64,
+          "CosQA": 24.36,
+          "StackOverflowQA": 59.57,
+          "SyntheticText2SQL": 44.07
+        },
+        "avg": 46.43,
+        "n": 9,
+        "total": 9
       }
     }
   },
@@ -7303,6 +7427,14 @@
         "n": 3,
         "total": 10
       },
+      "RTEB_Code": {
+        "scores": {
+          "Code1Retrieval": 85.76
+        },
+        "avg": 85.76,
+        "n": 1,
+        "total": 7
+      },
       "CoIR": {
         "scores": {
           "StackOverflowQA": 89.61
@@ -7320,6 +7452,14 @@
         "avg": 42.56,
         "n": 3,
         "total": 3
+      },
+      "LongCtx": {
+        "scores": {
+          "MultiLongDocRetrieval": 40.13
+        },
+        "avg": 40.13,
+        "n": 1,
+        "total": 7
       },
       "Reason": {
         "scores": {
@@ -11532,6 +11672,14 @@
         "n": 3,
         "total": 10
       },
+      "RTEB_Code": {
+        "scores": {
+          "Code1Retrieval": 92.02
+        },
+        "avg": 92.02,
+        "n": 1,
+        "total": 7
+      },
       "CoIR": {
         "scores": {
           "StackOverflowQA": 93.69
@@ -11549,6 +11697,14 @@
         "avg": 44.81,
         "n": 3,
         "total": 3
+      },
+      "LongCtx": {
+        "scores": {
+          "MultiLongDocRetrieval": 42.97
+        },
+        "avg": 42.97,
+        "n": 1,
+        "total": 7
       },
       "Reason": {
         "scores": {
