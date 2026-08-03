@@ -3520,6 +3520,64 @@
     }
   },
   {
+    "name": "bekko-embedding-v1-a8m",
+    "full_name": "hotchpotch/bekko-embedding-v1-a8m",
+    "params": 105975168,
+    "max_tokens": 8192.0,
+    "embed_dim": 384,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 55.41,
+          "TRECCOVID": 53.35,
+          "SCIDOCS": 19.43
+        },
+        "avg": 42.73,
+        "n": 3,
+        "total": 10
+      },
+      "RTEB_Code": {
+        "scores": {
+          "AppsRetrieval": 36.67,
+          "DS1000Retrieval": 39.75,
+          "FreshStackRetrieval": 27.13,
+          "HumanEvalRetrieval": 68.23,
+          "MBPPRetrieval": 71.96,
+          "WikiSQLRetrieval": 92.99
+        },
+        "avg": 56.12,
+        "n": 6,
+        "total": 7
+      },
+      "CoIR": {
+        "scores": {
+          "StackOverflowQA": 74.78
+        },
+        "avg": 74.78,
+        "n": 1,
+        "total": 9
+      },
+      "Instruct": {
+        "scores": {
+          "Core17InstructionRetrieval": 29.0,
+          "News21InstructionRetrieval": 37.43,
+          "Robust04InstructionRetrieval": 31.65
+        },
+        "avg": 32.69,
+        "n": 3,
+        "total": 3
+      },
+      "Reason": {
+        "scores": {
+          "TempReasonL1": 1.06
+        },
+        "avg": 1.06,
+        "n": 1,
+        "total": 7
+      }
+    }
+  },
+  {
     "name": "distilrubert-small-cased-conversational",
     "full_name": "DeepPavlov/distilrubert-small-cased-conversational",
     "params": 107000000,
@@ -4287,7 +4345,7 @@
     "name": "cadet-embed-base-v1",
     "full_name": "manveertamber/cadet-embed-base-v1",
     "params": 109000000,
-    "max_tokens": 512,
+    "max_tokens": 512.0,
     "embed_dim": 768,
     "benchmarks": {
       "Prose": {
@@ -5134,6 +5192,64 @@
         },
         "avg": 1.85,
         "n": 7,
+        "total": 7
+      }
+    }
+  },
+  {
+    "name": "bekko-embedding-v1-a25m",
+    "full_name": "hotchpotch/bekko-embedding-v1-a25m",
+    "params": 123234432,
+    "max_tokens": 8192.0,
+    "embed_dim": 384,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 57.42,
+          "TRECCOVID": 56.79,
+          "SCIDOCS": 20.11
+        },
+        "avg": 44.77,
+        "n": 3,
+        "total": 10
+      },
+      "RTEB_Code": {
+        "scores": {
+          "AppsRetrieval": 48.19,
+          "DS1000Retrieval": 42.93,
+          "FreshStackRetrieval": 30.54,
+          "HumanEvalRetrieval": 77.86,
+          "MBPPRetrieval": 77.14,
+          "WikiSQLRetrieval": 89.65
+        },
+        "avg": 61.05,
+        "n": 6,
+        "total": 7
+      },
+      "CoIR": {
+        "scores": {
+          "StackOverflowQA": 77.16
+        },
+        "avg": 77.16,
+        "n": 1,
+        "total": 9
+      },
+      "Instruct": {
+        "scores": {
+          "Core17InstructionRetrieval": 27.02,
+          "News21InstructionRetrieval": 34.82,
+          "Robust04InstructionRetrieval": 30.27
+        },
+        "avg": 30.7,
+        "n": 3,
+        "total": 3
+      },
+      "Reason": {
+        "scores": {
+          "TempReasonL1": 1.42
+        },
+        "avg": 1.42,
+        "n": 1,
         "total": 7
       }
     }
@@ -7722,6 +7838,114 @@
     }
   },
   {
+    "name": "mDenseOn",
+    "full_name": "lightonai/mDenseOn",
+    "params": 306939648,
+    "max_tokens": 8192.0,
+    "embed_dim": 768,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 55.31,
+          "FiQA2018": 51.91,
+          "TRECCOVID": 81.63,
+          "SCIDOCS": 21.51,
+          "CQADupstackGamingRetrieval": 62.87,
+          "CQADupstackUnixRetrieval": 46.27
+        },
+        "avg": 53.25,
+        "n": 6,
+        "total": 10
+      },
+      "RTEB_Code": {
+        "scores": {
+          "AppsRetrieval": 38.12
+        },
+        "avg": 38.12,
+        "n": 1,
+        "total": 7
+      },
+      "CoIR": {
+        "scores": {
+          "COIRCodeSearchNetRetrieval": 99.65,
+          "CodeFeedbackMT": 90.02,
+          "CodeFeedbackST": 87.5,
+          "CodeSearchNetCCRetrieval": 90.28,
+          "CodeTransOceanContest": 76.39,
+          "CodeTransOceanDL": 35.23,
+          "CosQA": 39.49,
+          "StackOverflowQA": 93.44,
+          "SyntheticText2SQL": 61.89
+        },
+        "avg": 74.88,
+        "n": 9,
+        "total": 9
+      },
+      "LongCtx": {
+        "scores": {
+          "MultiLongDocRetrieval": 54.34
+        },
+        "avg": 54.34,
+        "n": 1,
+        "total": 7
+      }
+    }
+  },
+  {
+    "name": "mLateOn",
+    "full_name": "lightonai/mLateOn",
+    "params": 306941184,
+    "max_tokens": 8192.0,
+    "embed_dim": 128,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 59.81,
+          "FiQA2018": 49.93,
+          "TRECCOVID": 82.12,
+          "SCIDOCS": 20.26,
+          "CQADupstackGamingRetrieval": 61.81,
+          "CQADupstackUnixRetrieval": 45.38
+        },
+        "avg": 53.22,
+        "n": 6,
+        "total": 10
+      },
+      "RTEB_Code": {
+        "scores": {
+          "AppsRetrieval": 40.23
+        },
+        "avg": 40.23,
+        "n": 1,
+        "total": 7
+      },
+      "CoIR": {
+        "scores": {
+          "COIRCodeSearchNetRetrieval": 84.76,
+          "CodeFeedbackMT": 93.2,
+          "CodeFeedbackST": 87.9,
+          "CodeSearchNetCCRetrieval": 91.67,
+          "CodeTransOceanContest": 81.77,
+          "CodeTransOceanDL": 37.6,
+          "CosQA": 39.18,
+          "StackOverflowQA": 92.25,
+          "SyntheticText2SQL": 62.24
+        },
+        "avg": 74.51,
+        "n": 9,
+        "total": 9
+      },
+      "LongCtx": {
+        "scores": {
+          "MultiLongDocRetrieval": 54.84
+        },
+        "avg": 54.84,
+        "n": 1,
+        "total": 7
+      }
+    }
+  },
+  {
     "name": "granite-embedding-311m-multilingual-r2",
     "full_name": "ibm-granite/granite-embedding-311m-multilingual-r2",
     "params": 311664384,
@@ -9634,6 +9858,32 @@
         "avg": 4.79,
         "n": 7,
         "total": 7
+      }
+    }
+  },
+  {
+    "name": "deepset-mxbai-embed-de-large-v1",
+    "full_name": "mixedbread-ai/deepset-mxbai-embed-de-large-v1",
+    "params": 487000000,
+    "max_tokens": 512.0,
+    "embed_dim": 1024,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 57.47,
+          "ClimateFEVERHardNegatives": 25.07,
+          "FEVERHardNegatives": 77.92,
+          "FiQA2018": 44.28,
+          "HotpotQAHardNegatives": 69.42,
+          "TRECCOVID": 69.71,
+          "Touche2020Retrieval.v3": 53.87,
+          "SCIDOCS": 19.76,
+          "CQADupstackGamingRetrieval": 60.52,
+          "CQADupstackUnixRetrieval": 41.48
+        },
+        "avg": 51.95,
+        "n": 10,
+        "total": 10
       }
     }
   },
