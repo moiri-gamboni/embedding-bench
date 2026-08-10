@@ -3529,32 +3529,48 @@
       "Prose": {
         "scores": {
           "ArguAna": 55.41,
+          "ClimateFEVERHardNegatives": 21.72,
+          "FEVERHardNegatives": 73.53,
+          "FiQA2018": 33.96,
+          "HotpotQAHardNegatives": 65.72,
           "TRECCOVID": 53.35,
-          "SCIDOCS": 19.43
+          "Touche2020Retrieval.v3": 61.27,
+          "SCIDOCS": 19.43,
+          "CQADupstackGamingRetrieval": 57.06,
+          "CQADupstackUnixRetrieval": 35.59
         },
-        "avg": 42.73,
-        "n": 3,
+        "avg": 47.7,
+        "n": 10,
         "total": 10
       },
       "RTEB_Code": {
         "scores": {
           "AppsRetrieval": 36.67,
+          "Code1Retrieval": 78.12,
           "DS1000Retrieval": 39.75,
           "FreshStackRetrieval": 27.13,
           "HumanEvalRetrieval": 68.23,
           "MBPPRetrieval": 71.96,
           "WikiSQLRetrieval": 92.99
         },
-        "avg": 56.12,
-        "n": 6,
+        "avg": 59.26,
+        "n": 7,
         "total": 7
       },
       "CoIR": {
         "scores": {
-          "StackOverflowQA": 74.78
+          "COIRCodeSearchNetRetrieval": 91.85,
+          "CodeFeedbackMT": 58.99,
+          "CodeFeedbackST": 77.24,
+          "CodeSearchNetCCRetrieval": 54.89,
+          "CodeTransOceanContest": 65.6,
+          "CodeTransOceanDL": 31.55,
+          "CosQA": 25.0,
+          "StackOverflowQA": 74.78,
+          "SyntheticText2SQL": 51.82
         },
-        "avg": 74.78,
-        "n": 1,
+        "avg": 59.08,
+        "n": 9,
         "total": 9
       },
       "Instruct": {
@@ -3566,6 +3582,17 @@
         "avg": 32.69,
         "n": 3,
         "total": 3
+      },
+      "LongCtx": {
+        "scores": {
+          "LEMBNarrativeQARetrieval": 44.5,
+          "LEMBQMSumRetrieval": 42.54,
+          "LEMBWikimQARetrieval": 78.68,
+          "MultiLongDocRetrieval": 45.01
+        },
+        "avg": 52.68,
+        "n": 4,
+        "total": 7
       },
       "Reason": {
         "scores": {
@@ -5206,32 +5233,48 @@
       "Prose": {
         "scores": {
           "ArguAna": 57.42,
+          "ClimateFEVERHardNegatives": 21.88,
+          "FEVERHardNegatives": 75.94,
+          "FiQA2018": 37.93,
+          "HotpotQAHardNegatives": 69.03,
           "TRECCOVID": 56.79,
-          "SCIDOCS": 20.11
+          "Touche2020Retrieval.v3": 57.79,
+          "SCIDOCS": 20.11,
+          "CQADupstackGamingRetrieval": 60.81,
+          "CQADupstackUnixRetrieval": 39.73
         },
-        "avg": 44.77,
-        "n": 3,
+        "avg": 49.74,
+        "n": 10,
         "total": 10
       },
       "RTEB_Code": {
         "scores": {
           "AppsRetrieval": 48.19,
+          "Code1Retrieval": 82.11,
           "DS1000Retrieval": 42.93,
           "FreshStackRetrieval": 30.54,
           "HumanEvalRetrieval": 77.86,
           "MBPPRetrieval": 77.14,
           "WikiSQLRetrieval": 89.65
         },
-        "avg": 61.05,
-        "n": 6,
+        "avg": 64.06,
+        "n": 7,
         "total": 7
       },
       "CoIR": {
         "scores": {
-          "StackOverflowQA": 77.16
+          "COIRCodeSearchNetRetrieval": 93.12,
+          "CodeFeedbackMT": 62.6,
+          "CodeFeedbackST": 80.62,
+          "CodeSearchNetCCRetrieval": 59.28,
+          "CodeTransOceanContest": 71.52,
+          "CodeTransOceanDL": 33.61,
+          "CosQA": 26.92,
+          "StackOverflowQA": 77.16,
+          "SyntheticText2SQL": 54.81
         },
-        "avg": 77.16,
-        "n": 1,
+        "avg": 62.18,
+        "n": 9,
         "total": 9
       },
       "Instruct": {
@@ -5243,6 +5286,17 @@
         "avg": 30.7,
         "n": 3,
         "total": 3
+      },
+      "LongCtx": {
+        "scores": {
+          "LEMBNarrativeQARetrieval": 48.13,
+          "LEMBQMSumRetrieval": 47.08,
+          "LEMBWikimQARetrieval": 87.24,
+          "MultiLongDocRetrieval": 44.06
+        },
+        "avg": 56.63,
+        "n": 4,
+        "total": 7
       },
       "Reason": {
         "scores": {
@@ -9862,6 +9916,80 @@
     }
   },
   {
+    "name": "nomic-embed-text-v2-moe",
+    "full_name": "nomic-ai/nomic-embed-text-v2-moe",
+    "params": 475292928,
+    "max_tokens": 512.0,
+    "embed_dim": 768,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 55.76,
+          "ClimateFEVERHardNegatives": 33.8,
+          "FEVERHardNegatives": 86.96,
+          "FiQA2018": 38.68,
+          "HotpotQAHardNegatives": 68.52,
+          "TRECCOVID": 78.74,
+          "Touche2020Retrieval.v3": 62.37,
+          "SCIDOCS": 19.25,
+          "CQADupstackGamingRetrieval": 61.26,
+          "CQADupstackUnixRetrieval": 42.74
+        },
+        "avg": 54.81,
+        "n": 10,
+        "total": 10
+      },
+      "RTEB_Code": {
+        "scores": {
+          "AppsRetrieval": 4.78,
+          "Code1Retrieval": 81.49,
+          "DS1000Retrieval": 26.92,
+          "FreshStackRetrieval": 23.46,
+          "HumanEvalRetrieval": 58.64,
+          "MBPPRetrieval": 73.06,
+          "WikiSQLRetrieval": 88.74
+        },
+        "avg": 51.01,
+        "n": 7,
+        "total": 7
+      },
+      "CoIR": {
+        "scores": {
+          "StackOverflowQA": 76.18
+        },
+        "avg": 76.18,
+        "n": 1,
+        "total": 9
+      },
+      "Instruct": {
+        "scores": {
+          "Core17InstructionRetrieval": 32.92,
+          "News21InstructionRetrieval": 37.56,
+          "Robust04InstructionRetrieval": 31.68
+        },
+        "avg": 34.05,
+        "n": 3,
+        "total": 3
+      },
+      "LongCtx": {
+        "scores": {
+          "MultiLongDocRetrieval": 27.15
+        },
+        "avg": 27.15,
+        "n": 1,
+        "total": 7
+      },
+      "Reason": {
+        "scores": {
+          "TempReasonL1": 0.74
+        },
+        "avg": 0.74,
+        "n": 1,
+        "total": 7
+      }
+    }
+  },
+  {
     "name": "deepset-mxbai-embed-de-large-v1",
     "full_name": "mixedbread-ai/deepset-mxbai-embed-de-large-v1",
     "params": 487000000,
@@ -11240,14 +11368,18 @@
       "Prose": {
         "scores": {
           "ArguAna": 56.55,
+          "ClimateFEVERHardNegatives": 17.91,
+          "FEVERHardNegatives": 57.89,
           "FiQA2018": 34.11,
+          "HotpotQAHardNegatives": 57.91,
           "TRECCOVID": 51.42,
+          "Touche2020Retrieval.v3": 41.85,
           "SCIDOCS": 19.34,
           "CQADupstackGamingRetrieval": 55.96,
           "CQADupstackUnixRetrieval": 39.56
         },
-        "avg": 42.82,
-        "n": 6,
+        "avg": 43.25,
+        "n": 10,
         "total": 10
       }
     }
