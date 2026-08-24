@@ -3801,6 +3801,66 @@
     }
   },
   {
+    "name": "static-nomic-384-pten-v2-st",
+    "full_name": "cnmoro/static-nomic-384-pten-v2-st",
+    "params": 106066176,
+    "max_tokens": null,
+    "embed_dim": 384,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 34.73,
+          "ClimateFEVERHardNegatives": 13.11,
+          "FEVERHardNegatives": 24.59,
+          "FiQA2018": 10.07,
+          "HotpotQAHardNegatives": 31.53,
+          "TRECCOVID": 43.8,
+          "Touche2020Retrieval.v3": 37.18,
+          "SCIDOCS": 9.16,
+          "CQADupstackGamingRetrieval": 32.23,
+          "CQADupstackUnixRetrieval": 16.03
+        },
+        "avg": 25.24,
+        "n": 10,
+        "total": 10
+      },
+      "CoIR": {
+        "scores": {
+          "StackOverflowQA": 42.17
+        },
+        "avg": 42.17,
+        "n": 1,
+        "total": 9
+      },
+      "Instruct": {
+        "scores": {
+          "Core17InstructionRetrieval": 18.78,
+          "News21InstructionRetrieval": 25.85,
+          "Robust04InstructionRetrieval": 18.67
+        },
+        "avg": 21.1,
+        "n": 3,
+        "total": 3
+      },
+      "LongCtx": {
+        "scores": {
+          "MultiLongDocRetrieval": 43.98
+        },
+        "avg": 43.98,
+        "n": 1,
+        "total": 7
+      },
+      "Reason": {
+        "scores": {
+          "TempReasonL1": 0.88
+        },
+        "avg": 0.88,
+        "n": 1,
+        "total": 7
+      }
+    }
+  },
+  {
     "name": "granite-embedding-107m-multilingual",
     "full_name": "ibm-granite/granite-embedding-107m-multilingual",
     "params": 106994304,
