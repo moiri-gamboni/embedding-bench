@@ -3252,6 +3252,28 @@
     }
   },
   {
+    "name": "static-retrieval-multilingual-69m-v1",
+    "full_name": "amgix/static-retrieval-multilingual-69m-v1",
+    "params": 69095424,
+    "max_tokens": null,
+    "embed_dim": null,
+    "benchmarks": {
+      "RTEB_Code": {
+        "scores": {
+          "AppsRetrieval": 3.21,
+          "DS1000Retrieval": 15.95,
+          "FreshStackRetrieval": 17.73,
+          "HumanEvalRetrieval": 33.98,
+          "MBPPRetrieval": 21.56,
+          "WikiSQLRetrieval": 18.34
+        },
+        "avg": 18.46,
+        "n": 6,
+        "total": 7
+      }
+    }
+  },
+  {
     "name": "F2LLM-v2-80M",
     "full_name": "codefuse-ai/F2LLM-v2-80M",
     "params": 80084288,
@@ -10417,6 +10439,56 @@
     }
   },
   {
+    "name": "Giga-Embeddings-instruct-480M-0826",
+    "full_name": "ai-sage/Giga-Embeddings-instruct-480M-0826",
+    "params": 483717632,
+    "max_tokens": 8192,
+    "embed_dim": 1024,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 53.77,
+          "ClimateFEVERHardNegatives": 27.5,
+          "FEVERHardNegatives": 85.23,
+          "FiQA2018": 52.14,
+          "HotpotQAHardNegatives": 69.38,
+          "TRECCOVID": 86.55,
+          "Touche2020Retrieval.v3": 60.67,
+          "SCIDOCS": 19.56,
+          "CQADupstackGamingRetrieval": 61.98,
+          "CQADupstackUnixRetrieval": 46.25
+        },
+        "avg": 56.3,
+        "n": 10,
+        "total": 10
+      },
+      "RTEB_Code": {
+        "scores": {
+          "AppsRetrieval": 81.61
+        },
+        "avg": 81.61,
+        "n": 1,
+        "total": 7
+      },
+      "CoIR": {
+        "scores": {
+          "COIRCodeSearchNetRetrieval": 91.7,
+          "CodeFeedbackMT": 91.24,
+          "CodeFeedbackST": 89.65,
+          "CodeSearchNetCCRetrieval": 80.77,
+          "CodeTransOceanContest": 86.49,
+          "CodeTransOceanDL": 37.64,
+          "CosQA": 37.9,
+          "StackOverflowQA": 92.33,
+          "SyntheticText2SQL": 62.86
+        },
+        "avg": 74.51,
+        "n": 9,
+        "total": 9
+      }
+    }
+  },
+  {
     "name": "deepset-mxbai-embed-de-large-v1",
     "full_name": "mixedbread-ai/deepset-mxbai-embed-de-large-v1",
     "params": 487000000,
@@ -11091,6 +11163,96 @@
     }
   },
   {
+    "name": "snowflake-arctic-embed-l-v2.0",
+    "full_name": "Snowflake/snowflake-arctic-embed-l-v2.0",
+    "params": 567754752,
+    "max_tokens": 8192.0,
+    "embed_dim": 1024,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 59.11,
+          "ClimateFEVERHardNegatives": 42.83,
+          "FEVERHardNegatives": 92.21,
+          "FiQA2018": 45.35,
+          "HotpotQAHardNegatives": 68.4,
+          "TRECCOVID": 83.63,
+          "Touche2020Retrieval.v3": 64.05,
+          "SCIDOCS": 20.28,
+          "CQADupstackGamingRetrieval": 63.18,
+          "CQADupstackUnixRetrieval": 46.57
+        },
+        "avg": 58.56,
+        "n": 10,
+        "total": 10
+      },
+      "RTEB_Code": {
+        "scores": {
+          "AppsRetrieval": 9.7,
+          "Code1Retrieval": 87.65,
+          "DS1000Retrieval": 42.66,
+          "FreshStackRetrieval": 32.26,
+          "HumanEvalRetrieval": 71.53,
+          "MBPPRetrieval": 80.23,
+          "WikiSQLRetrieval": 69.71
+        },
+        "avg": 56.25,
+        "n": 7,
+        "total": 7
+      },
+      "CoIR": {
+        "scores": {
+          "CodeFeedbackMT": 53.15,
+          "CodeFeedbackST": 74.42,
+          "CodeSearchNetCCRetrieval": 57.98,
+          "CodeTransOceanContest": 67.6,
+          "CodeTransOceanDL": 29.77,
+          "CosQA": 35.58,
+          "StackOverflowQA": 86.94,
+          "SyntheticText2SQL": 44.64
+        },
+        "avg": 56.26,
+        "n": 8,
+        "total": 9
+      },
+      "Instruct": {
+        "scores": {
+          "Core17InstructionRetrieval": 0.43,
+          "News21InstructionRetrieval": -0.24,
+          "Robust04InstructionRetrieval": -7.6
+        },
+        "avg": -2.47,
+        "n": 3,
+        "total": 3
+      },
+      "LongCtx": {
+        "scores": {
+          "LEMBNarrativeQARetrieval": 43.63,
+          "LEMBQMSumRetrieval": 40.04,
+          "LEMBWikimQARetrieval": 74.84,
+          "MultiLongDocRetrieval": 36.88
+        },
+        "avg": 48.85,
+        "n": 4,
+        "total": 7
+      },
+      "Reason": {
+        "scores": {
+          "TempReasonL1": 1.0,
+          "TempReasonL2Context": 15.88,
+          "TempReasonL2Fact": 25.91,
+          "TempReasonL2Pure": 0.8,
+          "TempReasonL3Context": 13.04,
+          "TempReasonL3Fact": 21.65,
+          "TempReasonL3Pure": 7.8
+        },
+        "avg": 12.3,
+        "n": 7,
+        "total": 7
+      }
+    }
+  },
+  {
     "name": "bge-m3-custom-fr",
     "full_name": "manu/bge-m3-custom-fr",
     "params": 567754752,
@@ -11201,7 +11363,7 @@
     "name": "bge-m3",
     "full_name": "BAAI/bge-m3",
     "params": 568000000,
-    "max_tokens": 8194.0,
+    "max_tokens": 8192.0,
     "embed_dim": 1024,
     "benchmarks": {
       "Prose": {
@@ -11270,96 +11432,6 @@
         },
         "avg": 14.05,
         "n": 5,
-        "total": 7
-      }
-    }
-  },
-  {
-    "name": "snowflake-arctic-embed-l-v2.0",
-    "full_name": "Snowflake/snowflake-arctic-embed-l-v2.0",
-    "params": 568000000,
-    "max_tokens": 8192.0,
-    "embed_dim": 1024,
-    "benchmarks": {
-      "Prose": {
-        "scores": {
-          "ArguAna": 59.11,
-          "ClimateFEVERHardNegatives": 42.83,
-          "FEVERHardNegatives": 92.21,
-          "FiQA2018": 45.35,
-          "HotpotQAHardNegatives": 68.4,
-          "TRECCOVID": 83.63,
-          "Touche2020Retrieval.v3": 64.05,
-          "SCIDOCS": 20.28,
-          "CQADupstackGamingRetrieval": 63.18,
-          "CQADupstackUnixRetrieval": 46.57
-        },
-        "avg": 58.56,
-        "n": 10,
-        "total": 10
-      },
-      "RTEB_Code": {
-        "scores": {
-          "AppsRetrieval": 9.7,
-          "Code1Retrieval": 87.65,
-          "DS1000Retrieval": 42.66,
-          "FreshStackRetrieval": 32.26,
-          "HumanEvalRetrieval": 71.53,
-          "MBPPRetrieval": 80.23,
-          "WikiSQLRetrieval": 69.71
-        },
-        "avg": 56.25,
-        "n": 7,
-        "total": 7
-      },
-      "CoIR": {
-        "scores": {
-          "CodeFeedbackMT": 53.15,
-          "CodeFeedbackST": 74.42,
-          "CodeSearchNetCCRetrieval": 57.98,
-          "CodeTransOceanContest": 67.6,
-          "CodeTransOceanDL": 29.77,
-          "CosQA": 35.58,
-          "StackOverflowQA": 86.94,
-          "SyntheticText2SQL": 44.64
-        },
-        "avg": 56.26,
-        "n": 8,
-        "total": 9
-      },
-      "Instruct": {
-        "scores": {
-          "Core17InstructionRetrieval": 0.43,
-          "News21InstructionRetrieval": -0.24,
-          "Robust04InstructionRetrieval": -7.6
-        },
-        "avg": -2.47,
-        "n": 3,
-        "total": 3
-      },
-      "LongCtx": {
-        "scores": {
-          "LEMBNarrativeQARetrieval": 43.63,
-          "LEMBQMSumRetrieval": 40.04,
-          "LEMBWikimQARetrieval": 74.84,
-          "MultiLongDocRetrieval": 36.88
-        },
-        "avg": 48.85,
-        "n": 4,
-        "total": 7
-      },
-      "Reason": {
-        "scores": {
-          "TempReasonL1": 1.0,
-          "TempReasonL2Context": 15.88,
-          "TempReasonL2Fact": 25.91,
-          "TempReasonL2Pure": 0.8,
-          "TempReasonL3Context": 13.04,
-          "TempReasonL3Fact": 21.65,
-          "TempReasonL3Pure": 7.8
-        },
-        "avg": 12.3,
-        "n": 7,
         "total": 7
       }
     }
