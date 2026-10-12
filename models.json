@@ -7744,6 +7744,32 @@
     }
   },
   {
+    "name": "uibk-embedding-v1",
+    "full_name": "DataScience-UIBK/uibk-embedding-v1",
+    "params": 179017728,
+    "max_tokens": 2048.0,
+    "embed_dim": 128,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 56.56,
+          "ClimateFEVERHardNegatives": 44.46,
+          "FEVERHardNegatives": 93.92,
+          "FiQA2018": 53.73,
+          "HotpotQAHardNegatives": 81.61,
+          "TRECCOVID": 83.82,
+          "Touche2020Retrieval.v3": 71.94,
+          "SCIDOCS": 23.6,
+          "CQADupstackGamingRetrieval": 65.67,
+          "CQADupstackUnixRetrieval": 49.45
+        },
+        "avg": 62.48,
+        "n": 10,
+        "total": 10
+      }
+    }
+  },
+  {
     "name": "linkup-sparseup-embed-v1",
     "full_name": "Linkup-Platform/linkup-sparseup-embed-v1",
     "params": 188391300,
