@@ -6493,6 +6493,31 @@
     }
   },
   {
+    "name": "spectral-embed-v1-140m",
+    "full_name": "JMullings/spectral-embed-v1-140m",
+    "params": 134219776,
+    "max_tokens": 512.0,
+    "embed_dim": 2048,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 30.92,
+          "ClimateFEVERHardNegatives": 5.09,
+          "FEVERHardNegatives": 7.49,
+          "FiQA2018": 7.89,
+          "HotpotQAHardNegatives": 20.24,
+          "TRECCOVID": 22.02,
+          "SCIDOCS": 5.98,
+          "CQADupstackGamingRetrieval": 31.49,
+          "CQADupstackUnixRetrieval": 16.74
+        },
+        "avg": 16.43,
+        "n": 9,
+        "total": 10
+      }
+    }
+  },
+  {
     "name": "Arabert-all-nli-triplet-Matryoshka",
     "full_name": "Omartificial-Intelligence-Space/Arabert-all-nli-triplet-Matryoshka",
     "params": 135193344,
@@ -7528,6 +7553,80 @@
     }
   },
   {
+    "name": "UltraBERT-Embed-150M",
+    "full_name": "dmis-lab/UltraBERT-Embed-150M",
+    "params": 151032576,
+    "max_tokens": 32768.0,
+    "embed_dim": 768,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 50.43,
+          "ClimateFEVERHardNegatives": 33.75,
+          "FEVERHardNegatives": 89.08,
+          "FiQA2018": 51.82,
+          "HotpotQAHardNegatives": 73.18,
+          "TRECCOVID": 80.82,
+          "Touche2020Retrieval.v3": 59.96,
+          "SCIDOCS": 23.84,
+          "CQADupstackGamingRetrieval": 63.42,
+          "CQADupstackUnixRetrieval": 45.65
+        },
+        "avg": 57.2,
+        "n": 10,
+        "total": 10
+      },
+      "RTEB_Code": {
+        "scores": {
+          "AppsRetrieval": 68.5
+        },
+        "avg": 68.5,
+        "n": 1,
+        "total": 7
+      },
+      "CoIR": {
+        "scores": {
+          "COIRCodeSearchNetRetrieval": 94.83,
+          "CodeFeedbackMT": 84.37,
+          "CodeFeedbackST": 86.4,
+          "CodeSearchNetCCRetrieval": 94.92,
+          "CodeTransOceanContest": 88.08,
+          "CodeTransOceanDL": 37.23,
+          "CosQA": 36.29,
+          "StackOverflowQA": 92.43,
+          "SyntheticText2SQL": 58.05
+        },
+        "avg": 74.73,
+        "n": 9,
+        "total": 9
+      },
+      "LongCtx": {
+        "scores": {
+          "LEMBNarrativeQARetrieval": 64.55,
+          "LEMBQMSumRetrieval": 55.28,
+          "LEMBWikimQARetrieval": 92.86
+        },
+        "avg": 70.9,
+        "n": 3,
+        "total": 7
+      },
+      "Reason": {
+        "scores": {
+          "TempReasonL1": 1.41,
+          "TempReasonL2Context": 26.01,
+          "TempReasonL2Fact": 38.37,
+          "TempReasonL2Pure": 1.14,
+          "TempReasonL3Context": 21.92,
+          "TempReasonL3Fact": 35.67,
+          "TempReasonL3Pure": 7.49
+        },
+        "avg": 18.86,
+        "n": 7,
+        "total": 7
+      }
+    }
+  },
+  {
     "name": "CodeSearch-ModernBERT-Crow-Plus",
     "full_name": "Shuu12121/CodeSearch-ModernBERT-Crow-Plus",
     "params": 151668480,
@@ -7766,6 +7865,16 @@
         "avg": 62.48,
         "n": 10,
         "total": 10
+      },
+      "LongCtx": {
+        "scores": {
+          "LEMBNarrativeQARetrieval": 77.95,
+          "LEMBQMSumRetrieval": 81.02,
+          "LEMBWikimQARetrieval": 99.69
+        },
+        "avg": 86.22,
+        "n": 3,
+        "total": 7
       }
     }
   },
@@ -7973,6 +8082,74 @@
           "TempReasonL1": 0.75
         },
         "avg": 0.75,
+        "n": 1,
+        "total": 7
+      }
+    }
+  },
+  {
+    "name": "embeddinggemma-2",
+    "full_name": "google/embeddinggemma-2",
+    "params": 271002624,
+    "max_tokens": 8192.0,
+    "embed_dim": 768,
+    "benchmarks": {
+      "Prose": {
+        "scores": {
+          "ArguAna": 59.83,
+          "ClimateFEVERHardNegatives": 22.99,
+          "FEVERHardNegatives": 81.69,
+          "FiQA2018": 32.33,
+          "HotpotQAHardNegatives": 78.14,
+          "TRECCOVID": 79.01,
+          "Touche2020Retrieval.v3": 43.43,
+          "SCIDOCS": 18.19,
+          "CQADupstackGamingRetrieval": 56.78,
+          "CQADupstackUnixRetrieval": 40.94
+        },
+        "avg": 51.33,
+        "n": 10,
+        "total": 10
+      },
+      "RTEB_Code": {
+        "scores": {
+          "AppsRetrieval": 89.29
+        },
+        "avg": 89.29,
+        "n": 1,
+        "total": 7
+      },
+      "CoIR": {
+        "scores": {
+          "COIRCodeSearchNetRetrieval": 99.77,
+          "CodeFeedbackMT": 88.22,
+          "CodeFeedbackST": 82.12,
+          "CodeSearchNetCCRetrieval": 97.88,
+          "CodeTransOceanContest": 83.74,
+          "CodeTransOceanDL": 36.59,
+          "CosQA": 51.35,
+          "StackOverflowQA": 87.32,
+          "SyntheticText2SQL": 61.1
+        },
+        "avg": 76.45,
+        "n": 9,
+        "total": 9
+      },
+      "Instruct": {
+        "scores": {
+          "Core17InstructionRetrieval": 38.47,
+          "News21InstructionRetrieval": 39.89,
+          "Robust04InstructionRetrieval": 37.98
+        },
+        "avg": 38.78,
+        "n": 3,
+        "total": 3
+      },
+      "Reason": {
+        "scores": {
+          "TempReasonL1": 1.25
+        },
+        "avg": 1.25,
         "n": 1,
         "total": 7
       }
